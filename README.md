@@ -1,8 +1,8 @@
 # 🌐 Nexus-Prime | Enterprise SaaS Command Center
 
-![Status](https://img.shields.io/badge/STATUS-OPERATIONAL-success?style=for-the-badge&logo=statuspage)
-![Deployment](https://img.shields.io/badge/DEPLOYMENT-ACTIVE-blue?style=for-the-badge&logo=vercel)
-![License](https://img.shields.io/badge/LICENSE-MIT-blueviolet?style=for-the-badge)
+[![Status](https://img.shields.io/badge/STATUS-OPERATIONAL-success?style=for-the-badge&logo=statuspage)](https://github.com/ayanlogix/nexus-prime/commits/main)
+[![Deployment](https://img.shields.io/badge/DEPLOYMENT-ACTIVE-blue?style=for-the-badge&logo=vercel)](https://ayanlogix.github.io/nexus-prime/)
+[![License](https://img.shields.io/badge/LICENSE-MIT-blueviolet?style=for-the-badge)](https://github.com/ayanlogix/nexus-prime/blob/main/LICENSE)
 
 **Nexus-Prime** is a high-fidelity enterprise command center designed for global mesh telemetry and multi-project orchestration. It serves as the "Digital Nervous System" for large-scale AI and automation deployments.
 
