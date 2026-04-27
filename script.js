@@ -30,37 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const radX = rotationX;
             const radY = rotationY;
             
-            // Rotation Y
+            // 3D Rotation
             let x1 = this.x * Math.cos(radY) - this.z * Math.sin(radY);
             let z1 = this.x * Math.sin(radY) + this.z * Math.cos(radY);
-            
-            // Rotation X
             let y2 = this.y * Math.cos(radX) - z1 * Math.sin(radX);
             let z2 = this.y * Math.sin(radX) + z1 * Math.cos(radX);
 
-            const scale = 500 / (500 + z2);
+            const scale = 600 / (600 + z2);
             const px = x1 * scale + w / 2;
             const py = y2 * scale + h / 2;
 
-            if (z2 > 0) return; // Cull back-face
+            if (z2 > 20) return null; // Backface culling
 
-            ctx.beginPath();
-            ctx.arc(px, py, this.isActive ? 4 : 2, 0, Math.PI * 2);
-            ctx.fillStyle = this.isActive ? '#4f46e5' : '#cbd5e1';
-            ctx.fill();
-
-            // Connections (Simple mesh logic)
-            points.forEach(p => {
-                const dx = this.id - p.id;
-                if (dx > 0 && dx < 4) {
-                    const dist = Math.sqrt((this.x-p.x)**2 + (this.y-p.y)**2 + (this.z-p.z)**2);
-                    if (dist < 80) {
-                        ctx.beginPath();
-                        ctx.moveTo(px, py);
-                        // p.project for line context is complex, we just use local draw
-                    }
-                }
-            });
+            return { px, py, isActive: this.isActive, z: z2 };
         }
     }
 
@@ -70,33 +52,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const renderMesh = () => {
-        canvas.width = canvas.parentElement.clientWidth;
-        canvas.height = canvas.parentElement.clientHeight;
+        const container = canvas.parentElement;
+        if (!container) return;
+        canvas.width = container.clientWidth;
+        canvas.height = container.clientHeight;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        rotationY += 0.005;
-        rotationX += 0.002;
+        rotationY += 0.003;
+        rotationX += 0.001;
 
         const w = canvas.width;
         const h = canvas.height;
 
-        // Draw mesh lines first for better look
-        points.forEach(p => p.project(ctx, w, h));
+        const projected = points.map(p => p.project(ctx, w, h)).filter(p => p !== null);
+
+        // Draw Interconnects
+        ctx.beginPath();
+        ctx.lineWidth = 0.5;
+        ctx.strokeStyle = 'rgba(79, 70, 229, 0.15)';
+        for (let i = 0; i < projected.length; i++) {
+            for (let j = i + 1; j < Math.min(i + 5, projected.length); j++) {
+                ctx.moveTo(projected[i].px, projected[i].py);
+                ctx.lineTo(projected[j].px, projected[j].py);
+            }
+        }
+        ctx.stroke();
+
+        // Draw Nodes
+        projected.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.px, p.py, p.isActive ? 3 : 1.5, 0, Math.PI * 2);
+            ctx.fillStyle = p.isActive ? '#4f46e5' : '#94a3b8';
+            ctx.fill();
+            if (p.isActive) {
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#4f46e5';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        });
 
         requestAnimationFrame(renderMesh);
     };
 
     // 2. Orchestration Logic & Logging
     const projectPings = [
-        "Bio-Matrix: Identity integrity verified",
+        "Nexus-Prime: Global mesh integrity 100%",
         "Agent-Alpha: Neural decision loop stable",
-        "Neural-Forge: 512 parameters optimized",
-        "Vector-Voyage: RAG traversal complete",
+        "Neural-Lens: 512 parameters optimized",
+        "Aether-V: Spatial telemetry synced",
         "Logic-Forge: Deduction path 0x4f valid",
         "Ghostwriter: Content SEO health 98%",
-        "Sentinel-Hub: DDoS mitigation passive",
-        "Flow-Sync: 12.4k packets synchronized",
-        "Cloud-Core: 8 instance nodes operational"
+        "Cloud-Core: 8 instance nodes operational",
+        "Flow-Sync: 12.4k packets synchronized"
     ];
 
     const addLog = (msg, isPrime = false) => {
