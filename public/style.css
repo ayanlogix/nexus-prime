@@ -1,0 +1,149 @@
+:root {
+    --bg: #f8fafc;
+    --panel: #ffffff;
+    --accent: #4f46e5;
+    --accent-dim: rgba(79, 70, 229, 0.05);
+    --border: #e2e8f0;
+    --text: #0f172a;
+    --text-dim: #64748b;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-bold: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.prime-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+.prime-header {
+    height: 72px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 100;
+}
+
+.brand { display: flex; align-items: center; gap: 0.75rem; color: var(--accent); font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.1rem; }
+.logo-mark svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+.nav-center { display: flex; gap: 2rem; }
+.nav-btn { text-decoration: none; color: var(--text-dim); font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 6px; transition: all 0.2s; }
+.nav-btn.active, .nav-btn:hover { color: var(--accent); background: var(--accent-dim); }
+
+.header-right { display: flex; align-items: center; gap: 2rem; }
+.search-box { 
+    display: flex; align-items: center; gap: 0.75rem; 
+    background: #f1f5f9; padding: 0.5rem 1rem; border-radius: 8px; 
+    color: var(--text-dim); font-size: 0.8rem; border: 1px solid transparent; cursor: text;
+}
+.search-box svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+.status-pill { 
+    display: flex; align-items: center; gap: 0.5rem; 
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; font-weight: 700; color: var(--accent); 
+    background: var(--accent-dim); padding: 0.4rem 0.8rem; border-radius: 20px;
+}
+.dot.pulse { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+/* Orchestrator Layout */
+.orchestrator-layout {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    padding: 2rem;
+    gap: 2rem;
+    background-image: 
+        radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.insights-panel {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.panel-header { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--text-dim); font-weight: 700; letter-spacing: 1px; }
+
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.stat-card { background: #fff; padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+.stat-card .label { font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+.stat-card h2 { font-size: 1.5rem; font-weight: 800; color: var(--text); }
+.trend { font-size: 0.65rem; font-weight: 700; margin-top: 0.5rem; }
+.trend.up { color: var(--accent); }
+.trend.stable { color: #94a3b8; }
+.trend.green { color: #10b981; }
+
+.activity-feed { flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow); }
+.feed-header { padding: 1rem; border-bottom: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; font-weight: 700; color: var(--text-dim); }
+.log-pipe { flex: 1; overflow-y: auto; padding: 1rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; line-height: 1.6; }
+.log-entry { margin-bottom: 0.5rem; color: #475569; border-left: 2px solid var(--border); padding-left: 0.75rem; }
+.log-entry.prime { color: var(--accent); border-left-color: var(--accent); }
+
+/* Mesh Center */
+.mesh-center {
+    flex: 1;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-bold);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-labels { padding: 1.5rem; display: flex; gap: 2rem; position: absolute; z-index: 10; }
+.label-box small { display: block; font-size: 0.6rem; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; margin-bottom: 2px; }
+.label-box span { font-weight: 700; font-size: 0.85rem; color: var(--text); }
+
+.mesh-stage { flex: 1; position: relative; background: #fff; display: flex; align-items: center; justify-content: center; }
+#meshGlobe { width: 100%; height: 100%; cursor: grab; }
+.mesh-overlay { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at center, transparent 0%, rgba(255,255,255,0.8) 100%); }
+
+/* Command Deck */
+.command-deck {
+    height: 140px;
+    background: #fff;
+    border-top: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.deck-header { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--text-dim); font-weight: 700; margin-bottom: 1rem; text-align: center; }
+
+.project-matrix { display: flex; gap: 1rem; justify-content: center; }
+.project-tab { 
+    width: 140px; height: 80px; 
+    background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; 
+    padding: 0.75rem; transition: all 0.3s; cursor: pointer; position: relative;
+}
+.project-tab:hover { transform: translateY(-3px); border-color: var(--accent); background: #fff; }
+.project-tab.active { border-color: var(--accent); background: var(--accent-dim); box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.1); }
+
+.project-tab .idx { position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.6rem; font-family: 'IBM Plex Mono', monospace; color: var(--text-dim); }
+.project-tab .name { font-size: 0.75rem; font-weight: 700; color: var(--text); margin-top: 0.5rem; display: block; }
+.project-tab .status { width: 4px; height: 4px; border-radius: 50%; background: #cbd5e1; margin-top: 0.75rem; }
+.project-tab .status.active { background: var(--accent); }

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus-Prime | Enterprise SaaS Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Outfit:wght@300;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23f1f5f9%22/><circle cx=%2250%22 cy=%2250%22 r=%2235%22 stroke=%22%234f46e5%22 stroke-width=%225%22 fill=%22white%22/><path d=%22M30 50L50 30L70 50L50 70Z%22 fill=%22%234f46e5%22/></svg>">
+</head>
+<body>
+    <div class="prime-container">
+        <!-- Enterprise Header -->
+        <header class="prime-header">
+            <div class="brand">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>
+                </div>
+                <span>Nexus_Prime</span>
+            </div>
+            <div class="nav-center">
+                <a href="#" class="nav-btn active">Overview</a>
+                <a href="#" class="nav-btn">Infrastructure</a>
+                <a href="#" class="nav-btn">Agents</a>
+                <a href="#" class="nav-btn">Security</a>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <span>Search Commands (⌘K)</span>
+                </div>
+                <div class="status-pill">
+                    <span class="dot pulse"></span>
+                    CORE_STABLE
+                </div>
+            </div>
+        </header>
+
+        <main class="orchestrator-layout">
+            <!-- Left Panel: Global Insights -->
+            <aside class="insights-panel">
+                <div class="panel-header">UNIFIED_TELEMETRY</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="label">ACTIVE_AGENTS</span>
+                        <h2 id="agentMetric">42</h2>
+                        <div class="trend up">+12.4%</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="label">SEC_INCIDENTS</span>
+                        <h2>00</h2>
+                        <div class="trend stable">STABLE</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="label">SYNC_NODES</span>
+                        <h2 id="syncMetric">1.4k</h2>
+                        <div class="trend up">+5.1k</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="label">CLOUD_HEALTH</span>
+                        <h2>99.9%</h2>
+                        <div class="trend green">OPTIMAL</div>
+                    </div>
+                </div>
+                <div class="activity-feed">
+                    <div class="feed-header">SYSTEM_INTERNAL_LOGS</div>
+                    <div id="logPipe" class="log-pipe">
+                        <!-- Dynamic Logs -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Center View: The Global Mesh -->
+            <section class="mesh-center">
+                <div class="canvas-labels">
+                    <div class="label-box">
+                        <small>NODE_ID</small>
+                        <span id="meshId">NXS-001</span>
+                    </div>
+                    <div class="label-box">
+                        <small>LATENCY</small>
+                        <span id="meshLat">1.2ms</span>
+                    </div>
+                </div>
+                <div class="mesh-stage">
+                    <canvas id="meshGlobe"></canvas>
+                    <div class="mesh-overlay"></div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Command Deck: The 10 Project Orchestrator -->
+        <footer class="command-deck">
+            <div class="deck-header">PROJECT_ORCHESTRATION_GRID</div>
+            <div class="project-matrix">
+                <div class="project-tab active">
+                    <span class="idx">10</span>
+                    <span class="name">Nexus-Prime</span>
+                    <div class="status active"></div>
+                </div>
+                <div class="project-tab" title="Cloud-Core">
+                    <span class="idx">09</span>
+                    <span class="name">Cloud-Core</span>
+                    <div class="status"></div>
+                </div>
+                <div class="project-tab" title="Flow-Sync">
+                    <span class="idx">08</span>
+                    <span class="name">Flow-Sync</span>
+                    <div class="status"></div>
+                </div>
+                <div class="project-tab" title="Sentinel-Hub">
+                    <span class="idx">07</span>
+                    <span class="name">Sentinel-Hub</span>
+                    <div class="status"></div>
+                </div>
+                <div class="project-tab" title="Ghostwriter-PRO">
+                    <span class="idx">06</span>
+                    <span class="name">Ghostwriter</span>
+                    <div class="status"></div>
+                </div>
+                <div class="project-tab" title="Logic-Forge">
+                    <span class="idx">05</span>
+                    <span class="name">Logic-Forge</span>
+                    <div class="status"></div>
+                </div>
+                <div class="project-tab" title="Vector-Voyage">
+                    <span class="idx">04</span>
+                    <span class="name">Vector-V</span>
+                    <div class="status"></div>
+                </div>
+                <div class="project-tab" title="Neural Forge">
+                    <span class="idx">03</span>
+                    <span class="name">Neural Forge</span>
+                    <div class="status"></div>
+                </div>
+                <div class="project-tab" title="Agent-Alpha">
+                    <span class="idx">02</span>
+                    <span class="name">Agent-Alpha</span>
+                    <div class="status"></div>
+                </div>
+                <div class="project-tab" title="Bio-Matrix">
+                    <span class="idx">01</span>
+                    <span class="name">Bio-Matrix</span>
+                    <div class="status"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
