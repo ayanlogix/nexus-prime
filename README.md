@@ -1,8 +1,8 @@
 # 🌐 Nexus-Prime | Enterprise SaaS Command Center
 
 ![Status](https://img.shields.io/badge/STATUS-OPERATIONAL-success?style=for-the-badge&logo=statuspage)
-![License](https://img.shields.io/badge/LICENSE-MIT-blue?style=for-the-badge)
-![Tech](https://img.shields.io/badge/TECH-CANVAS_API-orange?style=for-the-badge&logo=html5)
+![Deployment](https://img.shields.io/badge/DEPLOYMENT-ACTIVE-blue?style=for-the-badge&logo=vercel)
+![License](https://img.shields.io/badge/LICENSE-MIT-blueviolet?style=for-the-badge)
 
 **Nexus-Prime** is a high-fidelity enterprise command center designed for global mesh telemetry and multi-project orchestration. It serves as the "Digital Nervous System" for large-scale AI and automation deployments.
 
