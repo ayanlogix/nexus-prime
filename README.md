@@ -1,39 +1,66 @@
-# Nexus-Prime | Enterprise SaaS Command Center
+# 🌐 Nexus-Prime | Enterprise SaaS Command Center
 
-![Operational](https://img.shields.io/badge/Status-Operational-brightgreen?style=for-the-badge)
-[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-blue?style=for-the-badge)](https://ayanlogix.github.io/nexus-prime/)
+![Status](https://img.shields.io/badge/STATUS-OPERATIONAL-success?style=for-the-badge&logo=statuspage)
+![License](https://img.shields.io/badge/LICENSE-MIT-blue?style=for-the-badge)
+![Tech](https://img.shields.io/badge/TECH-CANVAS_API-orange?style=for-the-badge&logo=html5)
 
-**Nexus-Prime** is the flagship enterprise SaaS command center designed to orchestrate and monitor a suite of AI-driven projects. It serves as the central hub for global mesh telemetry, unified infrastructure monitoring, and multi-project orchestration.
+**Nexus-Prime** is a high-fidelity enterprise command center designed for global mesh telemetry and multi-project orchestration. It serves as the "Digital Nervous System" for large-scale AI and automation deployments.
 
-## 🚀 Key Features
-- **Project Orchestration Grid**: A unified dashboard for managing 10+ high-end AI projects (Cloud-Core, Flow-Sync, Logic-Forge, etc.).
-- **Global Mesh Telemetry**: Real-time visualization of a global node network with interactive globe rendering and latency tracking.
-- **Unified Telemetry**: Centralized metrics for active agents, security incidents, sync nodes, and overall cloud health.
-- **System Internal Logs**: High-performance log pipe for monitoring real-time system events across the entire project suite.
-- **Enterprise-Grade UI**: A clean, light-themed professional interface optimized for enterprise SaaS operations.
+[🚀 LIVE DEMO](https://ayanlogix.github.io/nexus-prime/) | [🔗 Portfolio](https://ayanlogix.dev)
 
-## 🛠️ Technical Stack
-- **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3
-- **Graphics**: Canvas API for real-time 3D globe and mesh rendering
-- **Logic**: Centralized orchestration engine for managing cross-project states
-- **Typography**: IBM Plex Mono & Outfit for an authoritative, enterprise feel
+---
 
-## 📁 Project Structure
-```bash
-nexus-prime/
-├── public/
-│   ├── index.html   # Command center UI
-│   ├── style.css    # Enterprise SaaS styling
-│   └── script.js    # Global mesh & telemetry logic
-└── README.md        # Documentation
-```
+## 🧠 Core Architecture
 
-## 📋 Installation
+Nexus-Prime is engineered for **Global Visibility.** It implements a custom visualization engine to handle high-density data telemetry with a premium, glassmorphic aesthetic.
+
+### Key Technical Pillars:
+*   **3D Globe Telemetry Engine**: A custom implementation of the HTML5 Canvas API providing a real-time, interactive 3D visualization of global traffic and node status.
+*   **Sentinel Security Logic**: A multi-layered authentication and access-control interface designed for secure enterprise environments.
+*   **Global Mesh Dashboard**: A high-performance dashboard architecture using CSS Grid and Flexbox for real-time monitoring of automated systems.
+*   **Encrypted Live Logging**: An integrated sentinel-log system for real-time telemetry tracing and system health auditing.
+
+---
+
+## 🛠️ Tech Stack
+
+*   **Engine**: Vanilla JavaScript (ES6+) utilizing the **Canvas API** for 3D rendering.
+*   **UI/UX**: Advanced Glassmorphism with CSS3 variables and dynamic state orchestration.
+*   **Logic**: Event-driven architecture for real-time telemetry updates.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+*   A modern web browser with hardware acceleration enabled for Canvas rendering.
+*   Zero external dependencies.
+
+### Installation
 1. Clone the repository:
    ```bash
    git clone https://github.com/ayanlogix/nexus-prime.git
    ```
-2. Open `public/index.html` in your browser.
+2. Navigate to the project directory:
+   ```bash
+   cd nexus-prime
+   ```
+3. Open `index.html` in your browser.
 
 ---
-*Developed by **Ayan Hussain (Ayanlogix)** - Orchestrating the enterprise.*
+
+## 🗺️ Roadmap
+- [ ] **Live API Integration**: Connecting real-world server health data via WebSocket.
+- [ ] **AI Sentinel**: Predictive analytics node for automated threat detection.
+- [ ] **Multi-Tenant Support**: Support for managing multiple enterprise organizations from one hub.
+
+---
+
+## 🤝 Contributing
+We welcome contributions to the Nexus-Prime engine! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct.
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+**Crafted with precision by [Ayan Hussain](https://ayanlogix.dev)**
