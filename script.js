@@ -130,7 +130,32 @@ document.addEventListener('DOMContentLoaded', () => {
         meshLat.innerText = `${(Math.random() * 2 + 0.5).toFixed(1)}ms`;
     };
 
-    // 3. User Interaction
+    // 3. View Switching Logic
+    const views = {
+        overview: document.getElementById('overviewView'),
+        infrastructure: document.getElementById('infrastructureView'),
+        agents: document.getElementById('agentsView'),
+        security: document.getElementById('securityView')
+    };
+
+    const switchView = (viewName) => {
+        Object.values(views).forEach(v => v.classList.remove('active'));
+        if (views[viewName]) {
+            views[viewName].classList.add('active');
+            addLog(`VIEW_ENGINE: Engaging ${viewName.toUpperCase()} module`, true);
+        }
+    };
+
+    const navBtns = document.querySelectorAll('.nav-btn');
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            navBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            switchView(btn.getAttribute('data-view'));
+        });
+    });
+
+    // 4. User Interaction
     projectTabs.forEach(tab => {
         tab.addEventListener('click', () => {
             projectTabs.forEach(t => t.classList.remove('active'));
@@ -139,10 +164,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = tab.querySelector('.name').innerText;
             meshId.innerText = `PRJ-${name.slice(0, 3).toUpperCase()}`;
             addLog(`HANDSHAKE: Focusing Nexus Core on ${name}`, true);
+            
+            // Visual Ping (Temporary speed up)
+            rotationY += 2;
         });
     });
 
-    // 4. Initialization
+    // 5. Initialization
     setInterval(updateMetrics, 2000);
     renderMesh();
     addLog("Nexus-Prime Orchestrator Online.", true);
