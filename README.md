@@ -1,7 +1,7 @@
 # Nexus-Prime | Enterprise SaaS Command Center
 
-![Nexus-Prime Preview](https://img.shields.io/badge/Ayanlogix-Enterprise_SaaS-indigo?style=for-the-badge)
-![Private](https://img.shields.io/badge/Status-Private-red?style=for-the-badge)
+![Operational](https://img.shields.io/badge/Status-Operational-brightgreen?style=for-the-badge)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-blue?style=for-the-badge)](https://ayanlogix.github.io/nexus-prime/)
 
 **Nexus-Prime** is the flagship enterprise SaaS command center designed to orchestrate and monitor a suite of AI-driven projects. It serves as the central hub for global mesh telemetry, unified infrastructure monitoring, and multi-project orchestration.
 
