@@ -189,3 +189,31 @@ body {
 .project-tab .name { font-size: 0.75rem; font-weight: 700; color: var(--text); margin-top: 0.5rem; display: block; }
 .project-tab .status { width: 4px; height: 4px; border-radius: 50%; background: #cbd5e1; margin-top: 0.75rem; }
 .project-tab .status.active { background: var(--accent); }
+
+/* Command Palette */
+.command-palette { 
+    position: fixed; inset: 0; background: rgba(15, 23, 42, 0.4); 
+    backdrop-filter: blur(8px); z-index: 1000; 
+    display: none; align-items: flex-start; justify-content: center; padding-top: 10vh; 
+}
+.command-palette.active { display: flex; }
+.palette-content { 
+    width: 600px; background: #fff; border-radius: 16px; 
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2); overflow: hidden; 
+    border: 1px solid var(--border); animation: modalIn 0.2s ease-out;
+}
+@keyframes modalIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.palette-header { display: flex; align-items: center; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); gap: 1rem; }
+.palette-header svg { width: 20px; height: 20px; stroke: var(--text-dim); fill: none; stroke-width: 2.5; }
+.palette-header input { flex: 1; border: none; outline: none; font-size: 1rem; color: var(--text); background: transparent; }
+.esc-hint { font-size: 0.6rem; font-weight: 700; color: var(--text-dim); background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; }
+
+.palette-results { padding: 0.5rem; }
+.command-item { 
+    display: flex; align-items: center; gap: 1rem; padding: 1rem 1rem; 
+    border-radius: 8px; cursor: pointer; transition: all 0.2s; 
+}
+.command-item:hover, .command-item.active { background: var(--accent-dim); color: var(--accent); }
+.cmd-icon { font-size: 1.1rem; }
+.cmd-name { font-size: 0.85rem; font-weight: 600; }

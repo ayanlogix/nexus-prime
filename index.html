@@ -171,6 +171,35 @@
             </div>
         </footer>
     </div>
+ 
+    <!-- Command Palette Modal -->
+    <div id="commandPalette" class="command-palette">
+        <div class="palette-content">
+            <div class="palette-header">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="paletteInput" placeholder="Type a command or search..." autocomplete="off">
+                <div class="esc-hint">ESC</div>
+            </div>
+            <div class="palette-results" id="paletteResults">
+                <div class="command-item active" data-cmd="overview">
+                    <span class="cmd-icon">🌐</span>
+                    <span class="cmd-name">Switch to Overview</span>
+                </div>
+                <div class="command-item" data-cmd="infrastructure">
+                    <span class="cmd-icon">📊</span>
+                    <span class="cmd-name">Open Infrastructure Metrics</span>
+                </div>
+                <div class="command-item" data-cmd="agents">
+                    <span class="cmd-icon">🤖</span>
+                    <span class="cmd-name">Monitor AI Agents</span>
+                </div>
+                <div class="command-item" data-cmd="security">
+                    <span class="cmd-icon">🛡️</span>
+                    <span class="cmd-name">View Security Matrix</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

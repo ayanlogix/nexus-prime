@@ -170,7 +170,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Initialization
+    // 5. Command Palette Logic
+    const palette = document.getElementById('commandPalette');
+    const paletteInput = document.getElementById('paletteInput');
+    const searchTrigger = document.querySelector('.search-box');
+
+    const togglePalette = (show) => {
+        palette.classList.toggle('active', show);
+        if (show) paletteInput.focus();
+    };
+
+    searchTrigger.addEventListener('click', () => togglePalette(true));
+    
+    document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            togglePalette(true);
+        }
+        if (e.key === 'Escape') togglePalette(false);
+    });
+
+    paletteInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        const items = document.querySelectorAll('.command-item');
+        items.forEach(item => {
+            const text = item.querySelector('.cmd-name').innerText.toLowerCase();
+            item.style.display = text.includes(query) ? 'flex' : 'none';
+        });
+    });
+
+    document.querySelectorAll('.command-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const cmd = item.getAttribute('data-cmd');
+            const navBtn = document.querySelector(`.nav-btn[data-view="${cmd}"]`);
+            if (navBtn) navBtn.click();
+            togglePalette(false);
+            paletteInput.value = '';
+        });
+    });
+
+    // 6. Initialization
     setInterval(updateMetrics, 2000);
     renderMesh();
     addLog("Nexus-Prime Orchestrator Online.", true);
