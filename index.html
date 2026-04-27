@@ -21,10 +21,10 @@
                 <span>Nexus_Prime</span>
             </div>
             <div class="nav-center">
-                <a href="#" class="nav-btn active">Overview</a>
-                <a href="#" class="nav-btn">Infrastructure</a>
-                <a href="#" class="nav-btn">Agents</a>
-                <a href="#" class="nav-btn">Security</a>
+                <button class="nav-btn active" data-view="overview">Overview</button>
+                <button class="nav-btn" data-view="infrastructure">Infrastructure</button>
+                <button class="nav-btn" data-view="agents">Agents</button>
+                <button class="nav-btn" data-view="security">Security</button>
             </div>
             <div class="header-right">
                 <div class="search-box">
@@ -85,8 +85,36 @@
                     </div>
                 </div>
                 <div class="mesh-stage">
-                    <canvas id="meshGlobe"></canvas>
-                    <div class="mesh-overlay"></div>
+                    <div id="overviewView" class="view-content active">
+                        <canvas id="meshGlobe"></canvas>
+                        <div class="mesh-overlay"></div>
+                    </div>
+                    <div id="infrastructureView" class="view-content">
+                        <div class="infra-matrix">
+                            <div class="bar-grid">
+                                <div class="bar" style="height: 40%"></div>
+                                <div class="bar" style="height: 70%"></div>
+                                <div class="bar pulse" style="height: 90%"></div>
+                                <div class="bar" style="height: 50%"></div>
+                                <div class="bar" style="height: 85%"></div>
+                            </div>
+                            <div class="matrix-label">INFRASTRUCTURE_TRAFFIC_FLOW</div>
+                        </div>
+                    </div>
+                    <div id="agentsView" class="view-content">
+                        <div class="agents-stream">
+                            <div class="stream-item">AGENT_ALPHA: Thinking... [0x4F]</div>
+                            <div class="stream-item">NEURAL_LENS: Optimizing... [99%]</div>
+                            <div class="stream-item">AETHER_V: Syncing Spatial...</div>
+                        </div>
+                    </div>
+                    <div id="securityView" class="view-content">
+                        <div class="security-alerts">
+                            <div class="alert high">! DETECTED: UNAUTHORIZED_POCKET_BLOCKED</div>
+                            <div class="alert">PASSIVE: ENCRYPTION_STABLE</div>
+                            <div class="alert">ROUTINE: FIREWALL_INTEGRITY_CHECK</div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
